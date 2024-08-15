@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moneycraft:item/fake_banknote_5s"
+  }
+}
