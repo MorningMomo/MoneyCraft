@@ -1,5 +1,7 @@
 package com.morningmomo.moneycraft.datagen;
 
+import com.morningmomo.moneycraft.init.ModBlocks;
+import com.morningmomo.moneycraft.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -13,6 +15,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-
+        this.getOrCreateTagBuilder(ModTags.WILD_CROPS)
+                .add(ModBlocks.WILD_FLAX);
     }
 }

@@ -22,6 +22,7 @@ public class ModModelsProvider extends FabricModelProvider {
             blockStateModelGenerator.registerSimpleCubeAll(block);
         }
         blockStateModelGenerator.registerCrop(ModBlocks.FLAX_CROP_BLOCK, FlaxCropBlock.AGE, 0,1,2,3,4,5,6,7);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.WILD_FLAX, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

@@ -15,6 +15,7 @@ public class MoneyCraftClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenRegistry.register(ModScreenHandlers.STRIPPER_SCREEN_HANDLER, StripperScreen::new);
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.FLAX_CROP_BLOCK);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FLAX_CROP_BLOCK, RenderLayer.getCutout()) ;
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_FLAX, RenderLayer.getCutout());
     }
 }

@@ -20,7 +20,6 @@ import static net.minecraft.util.Rarity.COMMON;
 public class ModItems {
     public static final ArrayList<Item> ITEM_LIST = new ArrayList<>();
     public static final ArrayList<BlockItem> BLOCK_ITEM_LIST = new ArrayList<>();
-    public static int x = 0;
 
     //Normal Items
     public static final Item BANKNOTE_1S = registerNormalItem("banknote_1s",64,COMMON);
@@ -77,7 +76,6 @@ public class ModItems {
     //Register different kinds of Items
     public static Item registerNormalItem(String name, int maxCount, Rarity rarity){
         ITEM_LIST.add(Registry.register(Registries.ITEM,new Identifier(MoneyCraft.MOD_ID, name),registerModItem(maxCount, rarity)));
-        x = 1;
         return ITEM_LIST.get(ITEM_LIST.size()-1);
     }
     public static Item registerNormalFoodItem(String name, int maxCount, Rarity rarity, int hunger, float saturation, boolean isAlwaysEdible){
@@ -117,6 +115,5 @@ public class ModItems {
 
     public static void registerModItems() {
         MoneyCraft.LOGGER.info("Registering Mod Items for " + MoneyCraft.MOD_ID);
-        MoneyCraft.LOGGER.info(String.valueOf(x));
     }
 }
