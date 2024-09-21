@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "moneycraft:flax_crop_block",
+    "moneycraft:cotton_crop_block"
+  ]
+}

@@ -1,3 +1,8 @@
-// 1.20.1	2024-08-25T12:01:44.0413234	MoneyCraft/Block Loot Tables
+// 1.20.1	2024-08-29T22:32:09.1931614	MoneyCraft/Block Loot Tables
+898e4b9779f93e78c1ef4d6dd0f5d1e7fa927805 data\moneycraft\loot_tables\blocks\cotton_crop_block.json
+0271d0898e919b857371006aaba21b5a498d77e5 data\moneycraft\loot_tables\blocks\coin_block.json
+611bd95764e41f236446ff3cdda0ebc27486be54 data\moneycraft\loot_tables\blocks\wild_cotton.json
+3fba472f0a6742d46dee92d95ffd322185bc4670 data\moneycraft\loot_tables\blocks\banknote_paper_block.json
+d0c1407aecc7778f21f865f4395b68b301ceb97d data\moneycraft\loot_tables\blocks\stripper.json
 c37e016a1566f45d3caeb889dbc429ab0088c864 data\moneycraft\loot_tables\blocks\wild_flax.json
 d15ec07535bf8602e7f907e8752207430994965a data\moneycraft\loot_tables\blocks\flax_crop_block.json

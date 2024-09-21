@@ -11,11 +11,15 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_FLAX_KEY = registerKey("wild_flax");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_COTTON_KEY = registerKey("wild_cotton");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         register(context, WILD_FLAX_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(64, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WILD_FLAX)))));
+        register(context, WILD_COTTON_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(64, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WILD_COTTON)))));
     }
     
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -1,0 +1,12 @@
+{
+  "type": "moneycraft:stripper",
+  "ingredients": [
+    {
+      "item": "moneycraft:cotton"
+    }
+  ],
+  "output": {
+    "item": "moneycraft:cotton_fiber",
+    "count": 8
+  }
+}

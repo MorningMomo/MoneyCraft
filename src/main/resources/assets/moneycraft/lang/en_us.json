@@ -45,9 +45,12 @@
   "item.moneycraft.cotton_seed": "Cotton Seed",
   "item.moneycraft.cotton_fiber": "Cotton Fiber",
   "item.moneycraft.coin_food": "Coin Food",
+  "item.moneycraft.paper_pulp_bucket": "Paper Pulp Bucket",
   "block.moneycraft.banknote_paper_block": "Banknote Paper Block",
   "block.moneycraft.coin_block": "Coin Block",
   "block.moneycraft.stripper": "Stripper",
   "block.moneycraft.wild_flax": "Wild Flax",
+  "fluid.moneycraft.paper_pulp": "Paper Pulp",
+  "fluid.moneycraft.flowing_paper_pulp": "Flowing Paper Pulp",
   "itemGroup.moneycraft.moneycraft": "MoneyCraft ItemGroup"
 }

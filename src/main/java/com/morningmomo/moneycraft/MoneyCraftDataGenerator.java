@@ -17,6 +17,7 @@ public class MoneyCraftDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModRecipesProvider::new);
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModFluidTagProvider::new);
         pack.addProvider(ModLootTablesProvider::new);
         pack.addProvider(ModWorldGenerator::new);
     }

@@ -1,4 +1,4 @@
-package com.morningmomo.moneycraft.screen;
+package com.morningmomo.moneycraft.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.morningmomo.moneycraft.MoneyCraft;

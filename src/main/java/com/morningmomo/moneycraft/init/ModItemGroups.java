@@ -2,10 +2,7 @@ package com.morningmomo.moneycraft.init;
 
 import com.morningmomo.moneycraft.MoneyCraft;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -19,11 +16,14 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.moneycraft.moneycraft")).icon(()-> new ItemStack(ModItems.COIN_FOOD))
                     .entries((displayContext, entries) ->
                     {
-                        for (Item item : ModItems.ITEM_LIST){
+                        for (Item item : ModItems.ITEM_LIST) {
                             entries.add(item);
                         }
-                        for (BlockItem blockItem : ModItems.BLOCK_ITEM_LIST){
+                        for (BlockItem blockItem : ModItems.BLOCK_ITEM_LIST) {
                             entries.add(blockItem);
+                        }
+                        for (BucketItem bucketItem : ModItems.BUCKET_ITEM_LIST) {
+                            entries.add(bucketItem);
                         }
                     })
                     .build());

@@ -1,0 +1,12 @@
+{
+  "type": "moneycraft:stripper",
+  "ingredients": [
+    {
+      "item": "moneycraft:flax"
+    }
+  ],
+  "output": {
+    "item": "moneycraft:flax_fiber",
+    "count": 8
+  }
+}

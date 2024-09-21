@@ -17,10 +17,13 @@ public class MoneyCraft implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerModBlockEntities();
+		ModFluids.registerFluids();
 		ModItemGroups.registerModItemGroups();
 		ModScreenHandlers.registerModScreenHandlers();
 		ModWorldGeneration.generateModWorldGeneration();
+		ModRecipes.registerModRecipes();
 		ModTags.registerTags();
+		ModInit.registerInit();
 		LOGGER.info("Finish!");
 	}
 }

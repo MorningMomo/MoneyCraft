@@ -1,4 +1,4 @@
-package com.morningmomo.moneycraft.screen;
+package com.morningmomo.moneycraft.screens;
 
 import com.morningmomo.moneycraft.entities.blockentities.StripperBlockEntity;
 import com.morningmomo.moneycraft.init.ModScreenHandlers;

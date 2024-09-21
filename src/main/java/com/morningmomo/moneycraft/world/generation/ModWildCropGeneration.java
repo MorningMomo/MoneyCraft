@@ -10,5 +10,7 @@ public class ModWildCropGeneration {
     public static void generateWildCrop() {
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_FLAX_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_COTTON_PLACED_KEY);
     }
 }

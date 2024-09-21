@@ -45,9 +45,12 @@
   "item.moneycraft.cotton_seed": "棉籽",
   "item.moneycraft.cotton_fiber": "棉纤维",
   "item.moneycraft.coin_food": "硬币食物",
+  "item.moneycraft.paper_pulp_bucket": "纸浆桶",
   "block.moneycraft.banknote_paper_block": "纸钞纸块",
   "block.moneycraft.coin_block": "硬币块",
   "block.moneycraft.stripper": "剥离器",
   "block.moneycraft.wild_flax": "野生亚麻",
+  "fluid.moneycraft.paper_pulp": "纸浆",
+  "fluid.moneycraft.flowing_paper_pulp": "流动的纸浆",
   "itemGroup.moneycraft.moneycraft": "金钱工艺"
 }

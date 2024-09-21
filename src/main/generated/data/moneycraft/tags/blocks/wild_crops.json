@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moneycraft:wild_flax"
+    "moneycraft:wild_flax",
+    "moneycraft:wild_cotton"
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "moneycraft:banknote_paper_block",
+    "moneycraft:coin_block",
+    "moneycraft:stripper"
+  ]
+}

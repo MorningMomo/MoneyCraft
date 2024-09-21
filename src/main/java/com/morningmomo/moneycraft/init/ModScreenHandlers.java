@@ -1,7 +1,7 @@
 package com.morningmomo.moneycraft.init;
 
 import com.morningmomo.moneycraft.MoneyCraft;
-import com.morningmomo.moneycraft.screen.StripperScreenHandler;
+import com.morningmomo.moneycraft.screens.StripperScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
