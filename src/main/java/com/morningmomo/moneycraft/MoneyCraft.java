@@ -14,16 +14,16 @@ public class MoneyCraft implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("I'm glad that you're using my mod!");
-		ModItems.registerModItems();
-		ModBlocks.registerModBlocks();
-		ModBlockEntities.registerModBlockEntities();
-		ModFluids.registerFluids();
-		ModItemGroups.registerModItemGroups();
-		ModScreenHandlers.registerModScreenHandlers();
-		ModWorldGeneration.generateModWorldGeneration();
-		ModRecipes.registerModRecipes();
-		ModTags.registerTags();
-		ModInit.registerInit();
+		ModItems.register();
+		ModBlocks.register();
+		ModBlockEntities.register();
+		ModFluids.register();
+		ModItemGroups.register();
+		ModScreenHandlers.register();
+		ModWorldGeneration.generate();
+		ModRecipes.register();
+		ModTags.register();
+		ModInit.register();
 		LOGGER.info("Finish!");
 	}
 }

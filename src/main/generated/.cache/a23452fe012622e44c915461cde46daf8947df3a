@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-29T22:32:09.2211666	MoneyCraft/Model Definitions
+// 1.20.1	2024-09-21T15:53:15.2175805	MoneyCraft/Model Definitions
 9899b4f3402476d325f16989f5a41da69343d6b4 assets\moneycraft\models\item\fake_banknote_200s.json
 69b05dc459de06470676bad08c464809277bd958 assets\moneycraft\models\item\banknote_1000s.json
 b6ab1e2ec50869bdcabcce82667ee240f3b9df5c assets\moneycraft\models\block\cotton_crop_block_stage0.json
@@ -46,8 +46,6 @@ fa340bd477e3f9381cf73abfb9a4c66c458abc20 assets\moneycraft\models\item\banknote_
 9c3dd0efef6604a7769016cc034396c4b9775e00 assets\moneycraft\models\item\raw_paper.json
 554d5df9bca4adeb3cb9709efcfcfd5281e002cd assets\moneycraft\models\item\cotton.json
 817c5f9e5a83f6328235a7bf1be4a1bda2402ef8 assets\moneycraft\blockstates\wild_cotton.json
-a568f8ff2bda3eaeb04ce4c0e4b5a7971fa246af assets\moneycraft\models\block\stripper.json
-e7758a08ec97b2538cb65a9ac9c2ea5e8c93cd37 assets\moneycraft\models\item\stripper.json
 0f6b8829db3d2f65173e4b6d58c81a1101d606c2 assets\moneycraft\models\block\banknote_paper_block.json
 adab2ad1d8b8dacf272a52ecb23b46c484458197 assets\moneycraft\models\item\banknote_500s.json
 22c534e9a4d4712ed51d945a646f6c415f8c2589 assets\moneycraft\models\item\flax_seed.json
@@ -72,7 +70,6 @@ baccdbcc776548118f2144becfe8ddb2399a2e09 assets\moneycraft\models\block\cotton_c
 9fa01bcd87af4c0816d63d6fae07246784710583 assets\moneycraft\models\item\coin_5s.json
 5a2510b81dc4c978705439d92f6f442a8b32540d assets\moneycraft\models\block\coin_block.json
 4178599b871184867d915b34b48af29c227c7d0a assets\moneycraft\blockstates\flax_crop_block.json
-7f600df8f5b5110b0c91cf3a51a34acc081c13ae assets\moneycraft\blockstates\stripper.json
 2127134304f16dfb76433be7d73e18905b717e0b assets\moneycraft\models\block\flax_crop_block_stage5.json
 531f07ecc2865c40b65c89d6207ca00b582f620f assets\moneycraft\models\item\fake_banknote_500s.json
 90c2b622520f08ff5d6de598c872ff0d417049f7 assets\moneycraft\models\item\cotton_seed.json

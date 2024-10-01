@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 
-public class ModBlockEntities {
+public class ModBlockEntities extends ModInit{
     public static final ArrayList<BlockEntityType<? extends BlockEntity>> BLOCK_ENTITY_TYPE_LIST = new ArrayList<>();
 
     //Block Entities
@@ -21,10 +21,10 @@ public class ModBlockEntities {
     public static <T extends BlockEntity> BlockEntityType<T> registerNormalBlockEntity(String name, Block block, FabricBlockEntityTypeBuilder.Factory<T> factory){
         BlockEntityType<T> blockEntityType = FabricBlockEntityTypeBuilder.create(factory, block).build();
         BLOCK_ENTITY_TYPE_LIST.add(blockEntityType);
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MoneyCraft.MOD_ID, name), blockEntityType);
+        return registerBlockEntity(name, blockEntityType);
     }
 
-    public static void registerModBlockEntities(){
+    public static void register(){
         MoneyCraft.LOGGER.info("Registering Mod Block Entities for " + MoneyCraft.MOD_ID);
     }
 }

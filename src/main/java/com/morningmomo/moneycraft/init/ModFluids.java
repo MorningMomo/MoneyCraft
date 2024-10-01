@@ -9,23 +9,23 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 
-public class ModFluids {
+public class ModFluids extends ModInit{
     public static final ArrayList<FlowableFluid> STILL_FLUID_LIST = new ArrayList<>();
     public static final ArrayList<FlowableFluid> FLOWING_FLUID_LIST = new ArrayList<>();
-    public static final FlowableFluid STILL_PAPER_PULP = registerNormalFluid("paper_pulp", new PaperFluid.Still(), 0);
-    public static final FlowableFluid FLOWING_PAPER_PULP = registerNormalFluid("flowing_paper_pulp", new PaperFluid.Flowing(),1);
+    public static final FlowableFluid STILL_PAPER_PULP = registerNormalFluid("paper_pulp", new PaperFluid.Still(), ModEnums.STILL);
+    public static final FlowableFluid FLOWING_PAPER_PULP = registerNormalFluid("flowing_paper_pulp", new PaperFluid.Flowing(),ModEnums.FLOWING);
 
-    public static FlowableFluid registerNormalFluid(String name, FlowableFluid state, int i) {
-        if (i == 0) {
-            STILL_FLUID_LIST.add(Registry.register(Registries.FLUID, new Identifier(MoneyCraft.MOD_ID, name), state));
+    public static FlowableFluid registerNormalFluid(String name, FlowableFluid state, ModEnums x) {
+        if (x == ModEnums.STILL) {
+            STILL_FLUID_LIST.add(registerFluid(name, state));
             return STILL_FLUID_LIST.get(STILL_FLUID_LIST.size()-1);
         }else {
-            FLOWING_FLUID_LIST.add(Registry.register(Registries.FLUID, new Identifier(MoneyCraft.MOD_ID, name), state));
+            FLOWING_FLUID_LIST.add(registerFluid(name, state));
             return FLOWING_FLUID_LIST.get(FLOWING_FLUID_LIST.size()-1);
         }
     }
 
-    public static void registerFluids() {
+    public static void register() {
         MoneyCraft.LOGGER.info("Registering ModFluids for " + MoneyCraft.MOD_ID);
     }
 }

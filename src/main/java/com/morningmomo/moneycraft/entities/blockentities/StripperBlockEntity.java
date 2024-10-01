@@ -1,6 +1,5 @@
 package com.morningmomo.moneycraft.entities.blockentities;
 
-import com.morningmomo.moneycraft.MoneyCraft;
 import com.morningmomo.moneycraft.init.ModBlockEntities;
 import com.morningmomo.moneycraft.recipes.StripperRecipe;
 import com.morningmomo.moneycraft.screens.StripperScreenHandler;
@@ -18,7 +17,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -28,7 +26,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class StripperBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory {
-    private static BooleanProperty stripperState;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
     private static final int INPUT_SLOT = 0;
@@ -102,19 +99,9 @@ public class StripperBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     public void tick(World world1, BlockPos pos, BlockState state1){
-        BlockState previousState = world1.getBlockState(pos);
         if (world1.isClient){
             return;
         }
-        
-        /*if (world1.getBlockState(pos) != previousState && !inventory.get(0).isEmpty() && isCrafting()) {
-            world1.setBlockState(pos, state1.with(stripperState, true));
-        }
-
-        if (world1.getBlockState(pos) == previousState && !hasRecipe() && progress != 0) {
-            world1.getBlockState(pos);
-        }*/
-
 
         if (isOutputSlotAvailable()){
             //MoneyCraft.LOGGER.info("0");
@@ -130,11 +117,11 @@ public class StripperBlockEntity extends BlockEntity implements ImplementedInven
                 }
             }else {
                 //MoneyCraft.LOGGER.info("3");
-                this.resetProgress();
+                this.decreaseCraftingProgress();
             }
         }else {
             //MoneyCraft.LOGGER.info("4");
-            this.resetProgress();
+            this.decreaseCraftingProgress();
             markDirty(world1, pos, state1);
         }
     }
@@ -173,7 +160,11 @@ public class StripperBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     private void decreaseCraftingProgress(){
-        progress--;
+        if (progress >= 0) {
+            progress--;
+        }else {
+            this.resetProgress();
+        }
     }
 
     private boolean hasCraftingFinished(){
@@ -191,9 +182,5 @@ public class StripperBlockEntity extends BlockEntity implements ImplementedInven
 
     private void resetProgress(){
         this.progress = 0;
-    }
-
-    private boolean isCrafting() {
-        return hasRecipe() && isOutputSlotAvailable();
     }
 }

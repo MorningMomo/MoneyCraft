@@ -1,34 +1,20 @@
 package com.morningmomo.moneycraft.init;
 
 import com.morningmomo.moneycraft.MoneyCraft;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
-public class ModItemGroups {
-    public static final ItemGroup MONEYCRAFT_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(MoneyCraft.MOD_ID, "moneycraft"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.moneycraft.moneycraft")).icon(()-> new ItemStack(ModItems.COIN_FOOD))
-                    .entries((displayContext, entries) ->
-                    {
-                        for (Item item : ModItems.ITEM_LIST) {
-                            entries.add(item);
-                        }
-                        for (BlockItem blockItem : ModItems.BLOCK_ITEM_LIST) {
-                            entries.add(blockItem);
-                        }
-                        for (BucketItem bucketItem : ModItems.BUCKET_ITEM_LIST) {
-                            entries.add(bucketItem);
-                        }
-                    })
-                    .build());
-    public static void registerModItemGroups() {
-        MoneyCraft.LOGGER.info("Registering Mod ItemGroups for " + MoneyCraft.MOD_ID + ":");
-        MoneyCraft.LOGGER.info(Objects.requireNonNull(Registries.ITEM_GROUP.getId(MONEYCRAFT_ITEM_GROUP)).toString());
+public class ModItemGroups extends ModInit{
+    public static final ArrayList<ItemGroup> ITEM_GROUP_LIST = new ArrayList<>();
+    public static final ItemGroup MONEYCRAFT_ITEM_GROUP = registerNormalItemGroup("moneycraft", ModItems.COIN_FOOD);
+
+    public static ItemGroup registerNormalItemGroup(String name, Item itemStack) {
+        ITEM_GROUP_LIST.add(registerItemGroup(name, itemStack));
+        return ITEM_GROUP_LIST.get(ITEM_GROUP_LIST.size() - 1);
+    }
+    public static void register() {
+        MoneyCraft.LOGGER.info("Registering Mod ItemGroups for " + MoneyCraft.MOD_ID);
     }
 }

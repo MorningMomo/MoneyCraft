@@ -1,0 +1,20 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "moneycraft:block/grinder",
+			"y": 270
+		},
+		"facing=south": {
+			"model": "moneycraft:block/grinder",
+			"y": 90
+		},
+		"facing=west": {
+			"model": "moneycraft:block/grinder",
+			"y": 180
+		},
+		"facing=east": {
+			"model": "moneycraft:block/grinder",
+			"y": 0
+		}
+	}
+}

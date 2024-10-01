@@ -13,7 +13,7 @@ public class ModRecipes extends ModInit{
     //RecipeSerializer
     public static final RecipeSerializer<?> STRIPPER_RECIPE_SERIALIZER = registerRecipes("stripper", StripperRecipe.Serializer.INSTANCE);
 
-    public static void registerModRecipes() {
+    public static void register() {
         MoneyCraft.LOGGER.info("Registering Mod Recipes for " + MoneyCraft.MOD_ID);
     }
 }

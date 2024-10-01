@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    " a ",
+    "aaa",
+    "bab"
+  ],
+  "result": {
+    "item": "moneycraft:stripper"
+  },
+  "show_notification": true
+}

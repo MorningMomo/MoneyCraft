@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 public class ModTags {
     public static TagKey<Block> WILD_CROPS;
     public static TagKey<Fluid> FLUIDS;
-    public static void registerTags() {
+    public static void register() {
          WILD_CROPS = TagKey.of(RegistryKeys.BLOCK, new Identifier(MoneyCraft.MOD_ID, "wild_crops"));
          FLUIDS = TagKey.of(RegistryKeys.FLUID, new Identifier(MoneyCraft.MOD_ID, "fluids"));
     }

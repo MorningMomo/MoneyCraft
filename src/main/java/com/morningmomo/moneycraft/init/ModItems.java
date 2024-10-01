@@ -2,8 +2,6 @@ package com.morningmomo.moneycraft.init;
 
 import com.morningmomo.moneycraft.MoneyCraft;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.CropBlock;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.BucketItem;
@@ -69,8 +67,8 @@ public class ModItems extends ModInit{
     public static final Item COIN_FOOD = registerNormalFoodItem("coin_food",64,COMMON,1,0.1f,true);
 
     //Crop Items
-    public static final Item FLAX_SEED = registerNormalBlockItem(ModBlocks.FLAX_CROP_BLOCK, "flax_seed", 64, COMMON);
-    public static final Item COTTON_SEED = registerNormalBlockItem(ModBlocks.COTTON_CROP_BLOCK, "cotton_seed", 64, COMMON);
+    public static final Item FLAX_SEED = registerNormalBlockItem(ModBlocks.FLAX_CROP_BLOCK, "flax_seed", 64, COMMON, ModEnums.CROP_BLOCK);
+    public static final Item COTTON_SEED = registerNormalBlockItem(ModBlocks.COTTON_CROP_BLOCK, "cotton_seed", 64, COMMON, ModEnums.CROP_BLOCK);
 
     //Bucket Items
     public static final Item PAPER_PULP_BUCKET = registerNormalBucketItem("paper_pulp_bucket", ModFluids.STILL_PAPER_PULP, COMMON);
@@ -79,34 +77,42 @@ public class ModItems extends ModInit{
 
     //Register different kinds of Items
     public static Item registerNormalItem(String name, int maxCount, Rarity rarity){
-        ITEM_LIST.add(registerItem(name, maxCount, rarity));
+        ITEM_LIST.add(ItemRegistry(name, maxCount, rarity));
         return ITEM_LIST.get(ITEM_LIST.size()-1);
     }
     public static Item registerNormalFoodItem(String name, int maxCount, Rarity rarity, int hunger, float saturation, boolean isAlwaysEdible){
-        ITEM_LIST.add(registerItem(name, maxCount, rarity, hunger, saturation, isAlwaysEdible));
+        ITEM_LIST.add(FoodItemRegistry(name, maxCount, rarity, hunger, saturation, isAlwaysEdible));
         return ITEM_LIST.get(ITEM_LIST.size()-1);
     }
 
     //Register BlockItems
-    public static BlockItem registerNormalBlockItem(Block block, String name, int maxCount, Rarity rarity){
-        if (block instanceof CropBlock){
-            BLOCK_ITEM_LIST.add(registerItem(name, maxCount, rarity, block,1));
-            return BLOCK_ITEM_LIST.get(BLOCK_ITEM_LIST.size()-1);
-        }else if (block instanceof BlockWithEntity) {
-            MACHINE_ITEM_LIST.add(registerItem(name, maxCount, rarity,block, 0));
-            return MACHINE_ITEM_LIST.get(MACHINE_ITEM_LIST.size()-1);
+    public static BlockItem registerNormalBlockItem(Block block, String name, int maxCount, Rarity rarity, ModEnums x){
+        switch (x) {
+            case BLOCK -> {
+                BLOCK_ITEM_LIST.add(BlockItemRegistry(name, maxCount, rarity, block));
+                return BLOCK_ITEM_LIST.get(BLOCK_ITEM_LIST.size() - 1);
+            }
+            case CROP_BLOCK -> {
+                BLOCK_ITEM_LIST.add(CropItemRegistry(name, maxCount, rarity, block));
+                return BLOCK_ITEM_LIST.get(BLOCK_ITEM_LIST.size() - 1);
+            }
+            case MACHINE_BLOCK_ENTITY, MACHINE_BLOCK -> {
+                MACHINE_ITEM_LIST.add(BlockItemRegistry(name, maxCount, rarity, block));
+                return MACHINE_ITEM_LIST.get(MACHINE_ITEM_LIST.size() - 1);
+            }
         }
-        BLOCK_ITEM_LIST.add(registerItem(name, maxCount, rarity,block, 0));
-        return BLOCK_ITEM_LIST.get(BLOCK_ITEM_LIST.size()-1);
+        return null;
     }
 
     //Register BucketItems
     public static BucketItem registerNormalBucketItem(String name, Fluid fluid, Rarity rarity) {
-        BUCKET_ITEM_LIST.add(registerItem(name, fluid, rarity));
+        BUCKET_ITEM_LIST.add(BucketItemRegistry(name, fluid, rarity));
         return BUCKET_ITEM_LIST.get(BUCKET_ITEM_LIST.size()-1);
     }
 
-    public static void registerModItems() {
+
+
+    public static void register() {
         MoneyCraft.LOGGER.info("Registering Mod Items for " + MoneyCraft.MOD_ID);
     }
 }
