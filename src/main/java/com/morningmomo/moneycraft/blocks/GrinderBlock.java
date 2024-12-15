@@ -41,14 +41,17 @@ public class GrinderBlock extends Block {
                 if (count >= 1) {
                     inventory.removeStack(slot, 1);
                     player.giveItemStack(itemStack);
+                    return ActionResult.SUCCESS;
                 }
             } else {
                 player.sendMessage(Text.of("Your backpack is full."));
+                return ActionResult.SUCCESS;
             }
         } else {
             player.sendMessage(Text.of("Your right hand does not have any log."));
+            return ActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        return ActionResult.SUCCESS;
     }
 
     @Override

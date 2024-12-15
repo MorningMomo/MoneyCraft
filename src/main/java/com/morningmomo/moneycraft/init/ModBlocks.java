@@ -29,6 +29,7 @@ public class ModBlocks extends ModInit{
     public static final BlockWithEntity STRIPPER = (BlockWithEntity) registerNormalBlock("stripper", new StripperBlock(blockSettings(1.5f, 6.0f)), ModEnums.MACHINE_BLOCK_ENTITY);
     public static final Block GRINDER = registerNormalBlock("grinder", new GrinderBlock(blockSettings(1.5f, 6.0f)), ModEnums.MACHINE_BLOCK);
     public static final BlockWithEntity FOOD_CONVERTER = (BlockWithEntity) registerNormalBlock("food_converter", new FoodConverterBlock(blockSettings(1.5f, 6.0f)), ModEnums.MACHINE_BLOCK_ENTITY);
+    public static final BlockWithEntity BOILER = (BlockWithEntity) registerNormalBlock("boiler", new BoilerBlock(blockSettings(1.5f, 6.0f)), ModEnums.MACHINE_BLOCK_ENTITY);
     public static final BlockWithEntity DIGESTER = (BlockWithEntity) registerNormalBlock("digester", new DigesterBlock(blockSettings(1.5f, 6.0f)), ModEnums.MACHINE_BLOCK_ENTITY);
     public static final BlockWithEntity BLENDER = (BlockWithEntity) registerNormalBlock("blender", new BlenderBlock(blockSettings(1.5f,6.0f)), ModEnums.MACHINE_BLOCK_ENTITY);
 

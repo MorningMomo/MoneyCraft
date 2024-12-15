@@ -1,6 +1,6 @@
 package com.morningmomo.moneycraft.screens;
 
-import com.morningmomo.moneycraft.entities.blockentities.StripperBlockEntity;
+import com.morningmomo.moneycraft.entities.blockentities.BoilerBlockEntity;
 import com.morningmomo.moneycraft.init.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,25 +13,28 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class StripperScreenHandler extends ScreenHandler {
+public class BoilerScreenHandler extends ScreenHandler {
    private final Inventory inventory;
    private final PropertyDelegate propertyDelegate;
-   public final StripperBlockEntity blockEntity;
-   public StripperScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
+   public final BoilerBlockEntity blockEntity;
+   public BoilerScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf){
        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-               new ArrayPropertyDelegate(2));
+               new ArrayPropertyDelegate(4));
    }
 
-   public StripperScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate){
-       super(ModScreenHandlers.STRIPPER_SCREEN_HANDLER, syncId);
-       checkSize((Inventory) blockEntity, 2);
+   public BoilerScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate){
+       super(ModScreenHandlers.BOILER_SCREEN_HANDLER_SCREEN_HANDLER, syncId);
+       checkSize((Inventory) blockEntity, 5);
        this.inventory = (Inventory) blockEntity;
        inventory.onOpen(playerInventory.player);
        this.propertyDelegate = arrayPropertyDelegate;
-       this.blockEntity = (StripperBlockEntity) blockEntity;
+       this.blockEntity = (BoilerBlockEntity) blockEntity;
 
-       this.addSlot(new Slot(inventory, 0, 80, 11));
-       this.addSlot(new Slot(inventory, 1, 80, 59));
+       this.addSlot(new Slot(inventory, 0, 34, 11));
+       this.addSlot(new Slot(inventory, 1, 34, 35));
+       this.addSlot(new Slot(inventory, 2, 34, 59));
+       this.addSlot(new Slot(inventory, 3, 100, 59));
+       this.addSlot(new Slot(inventory, 4, 127, 24));
 
        addPlayerInventory(playerInventory);
        addPlayerHotbar(playerInventory);
@@ -91,9 +94,17 @@ public class StripperScreenHandler extends ScreenHandler {
     public int getScaledProgress(){
        int progress = this.propertyDelegate.get(0);
        int maxProgress = this.propertyDelegate.get(1);
-       int progressArrowSize = 26;
 
-       return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+       return maxProgress != 0 && progress != 0 ? progress * 65 / maxProgress : 0;
     }
 
+    public int getScaledBurnTime() {
+       int burnTime = this.propertyDelegate.get(2);
+       int maxBurnTime = this.propertyDelegate.get(3);
+       return maxBurnTime != 0 && burnTime != 0 ? burnTime * 14 / maxBurnTime : 0;
+    }
+
+    public boolean isBurning() {
+       return this.propertyDelegate.get(2) > 0;
+    }
 }

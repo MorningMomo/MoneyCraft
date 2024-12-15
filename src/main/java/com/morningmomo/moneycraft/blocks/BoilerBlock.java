@@ -1,6 +1,6 @@
 package com.morningmomo.moneycraft.blocks;
 
-import com.morningmomo.moneycraft.entities.blockentities.DigesterBlockEntity;
+import com.morningmomo.moneycraft.entities.blockentities.BoilerBlockEntity;
 import com.morningmomo.moneycraft.init.ModBlockEntities;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -17,22 +17,22 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class DigesterBlock extends MachineBlock implements BlockEntityProvider {
-    public DigesterBlock(Settings settings) {
+public class BoilerBlock extends MachineBlock implements BlockEntityProvider {
+    public BoilerBlock(Settings settings) {
         super(settings);
     }
 
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new DigesterBlockEntity(pos, state);
+        return new BoilerBlockEntity(pos, state);
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient){
+        if (!world.isClient) {
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-            if (screenHandlerFactory != null){
+            if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);
             }
         }
@@ -42,7 +42,7 @@ public class DigesterBlock extends MachineBlock implements BlockEntityProvider {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.DIGESTER,
+        return checkType(type, ModBlockEntities.BOILER,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos ,state1));
     }
 
@@ -50,8 +50,8 @@ public class DigesterBlock extends MachineBlock implements BlockEntityProvider {
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()){
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof DigesterBlockEntity) {
-                ItemScatterer.spawn(world, pos, (DigesterBlockEntity)blockEntity);
+            if (blockEntity instanceof BoilerBlockEntity) {
+                ItemScatterer.spawn(world, pos, (BoilerBlockEntity)blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);

@@ -9,10 +9,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class StripperScreen extends HandledScreen<StripperScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(MoneyCraft.MOD_ID, "textures/gui/stripper_gui.png");
+public class BoilerScreen extends HandledScreen<BoilerScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(MoneyCraft.MOD_ID, "textures/gui/boiler1_gui.png");
 
-    public StripperScreen(StripperScreenHandler handler, PlayerInventory inventory, Text title){
+    public BoilerScreen(BoilerScreenHandler handler, PlayerInventory inventory, Text title){
         super(handler, inventory, title);
     }
 
@@ -32,11 +32,18 @@ public class StripperScreen extends HandledScreen<StripperScreenHandler> {
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderProgressArrow(context, x, y);
+        renderBurning(context, x, y);
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCrafting()){
-            context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
+            context.drawTexture(TEXTURE, x + 55, y + 18, 176, 14, handler.getScaledProgress(), 51);
+        }
+    }
+    private void renderBurning(DrawContext context, int x, int y) {
+        int a = 14 - handler.getScaledBurnTime();
+        if (handler.isBurning()) {
+            context.drawTexture(TEXTURE, x + 101, y + 43 + a, 176, a, 16, handler.getScaledBurnTime());
         }
     }
 

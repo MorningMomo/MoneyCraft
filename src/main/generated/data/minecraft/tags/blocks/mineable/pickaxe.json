@@ -3,6 +3,10 @@
   "values": [
     "moneycraft:banknote_paper_block",
     "moneycraft:coin_block",
-    "moneycraft:stripper"
+    "moneycraft:stripper",
+    "moneycraft:food_converter",
+    "moneycraft:boiler",
+    "moneycraft:digester",
+    "moneycraft:blender"
   ]
 }

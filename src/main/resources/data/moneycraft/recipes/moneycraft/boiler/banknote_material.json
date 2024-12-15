@@ -1,0 +1,23 @@
+{
+  "type": "moneycraft:boiler",
+  "ingredients": [
+    {
+      "item": "moneycraft:wood_dust"
+    },
+    {
+      "item": "moneycraft:flax_fiber"
+    },
+    {
+      "item": "moneycraft:cotton_fiber"
+    }
+  ],
+  "fuel": [
+    {
+      "item": "minecraft:birch_log"
+    }
+  ],
+  "output": {
+    "item": "moneycraft:banknote_material",
+    "count": 1
+  }
+}

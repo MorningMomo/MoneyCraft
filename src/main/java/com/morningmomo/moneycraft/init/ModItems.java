@@ -62,6 +62,7 @@ public class ModItems extends ModInit{
     public static final Item WOOD_DUST = registerNormalItem("wood_dust",64,COMMON);
     public static final Item COTTON = registerNormalItem("cotton",64,COMMON);
     public static final Item COTTON_FIBER = registerNormalItem("cotton_fiber",64,COMMON);
+    public static final Item BANKNOTE_MATERIAL = registerNormalItem("banknote_material", 64, COMMON);
 
     //Food Items
     public static final Item COIN_FOOD = registerNormalFoodItem("coin_food",64,COMMON,1,0.1f,true);

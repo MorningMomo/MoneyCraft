@@ -9,10 +9,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class StripperScreen extends HandledScreen<StripperScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(MoneyCraft.MOD_ID, "textures/gui/stripper_gui.png");
+public class FoodConverterScreen extends HandledScreen<FoodConverterScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(MoneyCraft.MOD_ID, "textures/gui/food_converter_gui.png");
 
-    public StripperScreen(StripperScreenHandler handler, PlayerInventory inventory, Text title){
+    public FoodConverterScreen(FoodConverterScreenHandler handler, PlayerInventory inventory, Text title){
         super(handler, inventory, title);
     }
 
@@ -46,4 +46,7 @@ public class StripperScreen extends HandledScreen<StripperScreenHandler> {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
+
+
+
 }

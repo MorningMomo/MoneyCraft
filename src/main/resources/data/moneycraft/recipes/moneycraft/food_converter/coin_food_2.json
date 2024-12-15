@@ -1,0 +1,12 @@
+{
+  "type": "moneycraft:food_converter",
+  "ingredients": [
+    {
+      "item": "moneycraft:banknote_5s"
+    }
+  ],
+  "output": {
+    "item": "moneycraft:coin_food",
+    "count": 1
+  }
+}

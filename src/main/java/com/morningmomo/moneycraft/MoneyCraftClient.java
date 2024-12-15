@@ -3,6 +3,8 @@ package com.morningmomo.moneycraft;
 import com.morningmomo.moneycraft.init.ModBlocks;
 import com.morningmomo.moneycraft.init.ModFluids;
 import com.morningmomo.moneycraft.init.ModScreenHandlers;
+import com.morningmomo.moneycraft.screens.BoilerScreen;
+import com.morningmomo.moneycraft.screens.FoodConverterScreen;
 import com.morningmomo.moneycraft.screens.StripperScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -19,6 +21,8 @@ public class MoneyCraftClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenRegistry.register(ModScreenHandlers.STRIPPER_SCREEN_HANDLER, StripperScreen::new);
+        ScreenRegistry.register(ModScreenHandlers.FOOD_CONVERTER_SCREEN_HANDLER, FoodConverterScreen::new);
+        ScreenRegistry.register(ModScreenHandlers.BOILER_SCREEN_HANDLER_SCREEN_HANDLER, BoilerScreen::new);
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_PAPER_PULP, ModFluids.FLOWING_PAPER_PULP,
                 new SimpleFluidRenderHandler(
                         new Identifier("moneycraft:block/still_paper_pulp"),

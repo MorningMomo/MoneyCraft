@@ -1,5 +1,5 @@
-// 1.20.1	2024-09-21T15:53:15.3046025	MoneyCraft/Tags for minecraft:block
+// 1.20.1	2024-11-30T22:49:03.2082185	MoneyCraft/Tags for minecraft:block
 097454e110650b2e29ed08f7b548f0a664b21d41 data\minecraft\tags\blocks\crops.json
 ef493175452cd54cbfa5e6c807c8f07f1a330ed0 data\moneycraft\tags\blocks\wild_crops.json
-980794f844eecc7a6b07c5f17c7a3af5e80bcc4e data\minecraft\tags\blocks\needs_iron_tool.json
-980794f844eecc7a6b07c5f17c7a3af5e80bcc4e data\minecraft\tags\blocks\mineable\pickaxe.json
+537aac27ccb78633a0eda75954be3a3d015c5ecc data\minecraft\tags\blocks\needs_iron_tool.json
+537aac27ccb78633a0eda75954be3a3d015c5ecc data\minecraft\tags\blocks\mineable\pickaxe.json
