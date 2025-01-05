@@ -1,6 +1,7 @@
 package com.morningmomo.moneycraft.entities.blockentities;
 
 import com.morningmomo.moneycraft.init.ModBlockEntities;
+import com.morningmomo.moneycraft.init.ModItems;
 import com.morningmomo.moneycraft.recipes.BoilerRecipe;
 import com.morningmomo.moneycraft.screens.BoilerScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
@@ -140,7 +141,18 @@ public class BoilerBlockEntity extends BlockEntity implements ImplementedInvento
                     resetProgress();
                     decreaseBurnTime();
                 }
-            }else {
+            } else if (hasRecipe1()) {
+                increaseCraftingProgress();
+                decreaseBurnTime();
+                if (hasCraftingFinished()) {
+                    this.setStack(OUTPUT_SLOT, new ItemStack(ModItems.BANKNOTE_MATERIAL, this.getStack(OUTPUT_SLOT).getCount() + 1));
+                    this.removeStack(INPUT_SLOT_0, 1);
+                    this.removeStack(INPUT_SLOT_1, 8);
+                    this.removeStack(INPUT_SLOT_2, 8);
+                    resetProgress();
+                }
+                markDirty(world1, pos, state1);
+            } else {
                 decreaseCraftingProgress();
                 decreaseBurnTime();
             }
@@ -182,6 +194,12 @@ public class BoilerBlockEntity extends BlockEntity implements ImplementedInvento
         return canInsertAmountIntoOutputSlot(recipeOutput) && canInsertItemIntoOutputSlot(recipeOutput.getItem());
     }
 
+    private boolean hasRecipe1() {
+        return this.burnTime > 0
+                && (getStack(INPUT_SLOT_0).isOf(ModItems.WOOD_DUST) && getStack(INPUT_SLOT_1).isOf(ModItems.FLAX_FIBER) && getStack(INPUT_SLOT_2).isOf(ModItems.COTTON_FIBER))
+                && (getStack(INPUT_SLOT_0).getCount() - 1 >= 0 && getStack(INPUT_SLOT_1).getCount() - 8 >= 0 && getStack(INPUT_SLOT_2).getCount() - 8 >= 0);
+    }
+
     private Optional<BoilerRecipe> getCurrentRecipe() {
         SimpleInventory inv = new SimpleInventory(this.size());
         for (int i = 0; i < inv.size(); i++) {
@@ -208,10 +226,6 @@ public class BoilerBlockEntity extends BlockEntity implements ImplementedInvento
         }else {
             this.resetProgress();
         }
-    }
-
-    private void increaseBurnTime() {
-        this.burnTime++;
     }
 
     private void decreaseBurnTime() {
